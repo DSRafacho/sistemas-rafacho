@@ -1,0 +1,26 @@
+# PRODUCTS #
+
+# Schedule #
+
+# backend
+products/schedules/backend/venv
+products/schedules/backend/.idea
+products/schedules/backend/.vscode
+
+# frontend
+products/schedules/frontend/node_modules
+products/schedules/frontend/.idea
+products/schedules/frontend/.vscode
+
+
+# APLICATION #
+
+# frontend
+aplication/frontend/node_modules
+aplication/frontend/.idea
+aplication/frontend/.vscode
+
+# backend
+aplication/backend/venv
+aplication/backend/.idea
+aplication/backend/.vscode
