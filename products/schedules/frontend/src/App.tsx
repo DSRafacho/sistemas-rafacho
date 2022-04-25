@@ -1,9 +1,6 @@
 import React from 'react';
 
 import {
-    useQuery,
-    useMutation,
-    useQueryClient,
     QueryClient,
     QueryClientProvider,
 } from 'react-query'
@@ -11,9 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import {Login} from "./screens/Login";
 import {Console} from "./screens/Console";
-
-import './App.css';
-import {Footer} from "./components/Others/Footer";
+// import {Footer} from "./components/Others/Footer";
 
 function App() {
     const queryClient = new QueryClient({

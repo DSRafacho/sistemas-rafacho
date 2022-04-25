@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ScheduleResponseInterface } from "../../interfaces/ResponseApi.interface";
 
@@ -5,10 +6,19 @@ import { ScheduleResponseInterface } from "../../interfaces/ResponseApi.interfac
 export function Pagination(
     props: { data: ScheduleResponseInterface, setFilters: Function, refetch: Function }
 ) {
+    const [ currentPage, setCurrentPage ] = useState(1)
+    const totalRecords: number = props.data.count
+    let totalPages: number | string = String(totalRecords / 15)
+
+
+    if( totalPages.match('.') )
+        totalPages = parseInt(totalPages) + 1
+    else totalPages = totalPages    
+    
     return (
         <div className="flex justify-end mt-1">
             <div>
-                <span>Página X de Y</span>
+                <span>Página {currentPage} de {totalPages}</span>
 
                 <motion.button
                     whileHover={{ scale: 1.1 }}
@@ -19,6 +29,7 @@ export function Pagination(
                             const previousUrl = props.data.previous.split('schedules')[1]
                             props.setFilters(previousUrl)
                             props.refetch()
+                            setCurrentPage( currentPage - 1 )
 
                             return
                         }
@@ -36,6 +47,7 @@ export function Pagination(
                             const nextUrl = props.data.next.split('schedules')[1]
                             props.setFilters(nextUrl)
                             props.refetch()
+                            setCurrentPage( currentPage + 1 )
 
                             return
                         }
